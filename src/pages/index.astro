@@ -1,13 +1,75 @@
 ---
-import Welcome from "../components/Welcome.astro";
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import { MapPin, Mail, Download } from "@lucide/astro";
+import SocialLink from "../components/SocialLink.astro";
+import Button from "../components/Button.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import githubLogo from "../assets/github-mark.svg";
+import githubLogoWhite from "../assets/github-mark-white.svg";
+import linkedinLogo from "../assets/InBug-White.png";
 ---
 
 <Layout>
-  <div class="flex items-center justify-center h-screen">
-    <h1 class="text-4xl dark:text-white">Construction in progress</h1>
+  <div class="p-4">
+    <div class="grid md:grid-cols-[300px_1fr] gap-8">
+      <!-- side bar -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm h-fit">
+        <div class="flex flex-col items-center text-center mb-6">
+          <div
+            class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4"
+          >
+            <!-- TODO maybe use an image -->
+            <h1 class="text-4xl dark:text-white">KD</h1>
+          </div>
+          <h1 class="text-2xl font-bold dark:text-white">Kevin Dang</h1>
+          <p class="text-gray-500 dark:text-gray-400">Software Engineer</p>
+          <div
+            class="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2"
+          >
+            <MapPin size={14} class="mr-1" />
+            <span>Toronto, Canada</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center my-6">
+          <a href="/kevin-dang-cv.pdf" download>
+            <Button>
+              <Download size={16} />
+              <span>Resume</span>
+            </Button>
+          </a>
+        </div>
+
+        <div class="flex justify-center gap-3 my-6">
+          <SocialLink href="https://github.com/k-dang" target="_blank">
+            <Image src={githubLogoWhite} width="16" height="16" alt="Github" />
+          </SocialLink>
+          <SocialLink
+            href="https://www.linkedin.com/in/kdang1/"
+            target="_blank"
+          >
+            <Image src={linkedinLogo} width="16" height="16" alt="Github" />
+          </SocialLink>
+          <SocialLink href="mailto:dangkevin12@gmail.com">
+            <Mail class="dark:text-white" size={18} />
+          </SocialLink>
+        </div>
+
+        <div>
+          <h2
+            class="text-sm uppercase text-gray-500 dark:text-gray-400 font-semibold mb-2"
+          >
+            Education
+          </h2>
+          <div></div>
+        </div>
+      </div>
+
+      <!-- About me -->
+      <div>
+        <h2 class="text-3xl dark:text-white border-solid border-2">About Me</h2>
+      </div>
+    </div>
   </div>
 </Layout>
