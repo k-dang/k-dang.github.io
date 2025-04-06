@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
 import Layout from "../layouts/Layout.astro";
 import { MapPin, Mail, Download } from "@lucide/astro";
 import SocialLink from "../components/SocialLink.astro";
@@ -7,14 +9,40 @@ import Button from "../components/Button.astro";
 
 import githubLogo from "../assets/github-mark.svg";
 import githubLogoWhite from "../assets/github-mark-white.svg";
-import linkedinLogo from "../assets/InBug-White.png";
+import linkedinLogo from "../assets/linkedin-logo.png";
+import Badge from "../components/Badge.astro";
+
+const languages = ["C#", "Python", "JavaScript", "Bash"];
+const clientSideTech = ["React", "Angular", "Astro", "React Native"];
+const serverSideTech = [
+  "ASP.NET Core",
+  "Django",
+  "Node.js",
+  "Firebase",
+  "Azure Functions",
+  "Azure Service Bus",
+];
+const tools = [
+  "Azure",
+  "Azure DevOps",
+  "Git",
+  "Github Actions",
+  "Docker",
+  "Terraform",
+];
+const databases = ["Microsoft SQL Server", "Cosmos DB", "MongoDB"];
+
+// getting work experience from content collection
+const workPosts = await getCollection("work");
+
+console.log(workPosts);
 ---
 
 <Layout>
   <div class="p-4">
-    <div class="grid md:grid-cols-[300px_1fr] gap-8">
+    <div class="grid md:grid-cols-[300px_1fr] gap-4">
       <!-- side bar -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm h-fit">
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
         <div class="flex flex-col items-center text-center mb-6">
           <div
             class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4"
@@ -23,7 +51,9 @@ import linkedinLogo from "../assets/InBug-White.png";
             <h1 class="text-4xl dark:text-white">KD</h1>
           </div>
           <h1 class="text-2xl font-bold dark:text-white">Kevin Dang</h1>
-          <p class="text-gray-500 dark:text-gray-400">Software Engineer</p>
+          <p class="text-gray-500 dark:text-gray-400">
+            Senior Software Engineer
+          </p>
           <div
             class="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2"
           >
@@ -32,43 +62,187 @@ import linkedinLogo from "../assets/InBug-White.png";
           </div>
         </div>
 
-        <div class="flex items-center justify-center my-6">
-          <a href="/kevin-dang-cv.pdf" download>
-            <Button>
-              <Download size={16} />
-              <span>Resume</span>
-            </Button>
-          </a>
-        </div>
-
         <div class="flex justify-center gap-3 my-6">
           <SocialLink href="https://github.com/k-dang" target="_blank">
-            <Image src={githubLogoWhite} width="16" height="16" alt="Github" />
+            <Image
+              src={githubLogoWhite}
+              width="16"
+              height="16"
+              alt="Github"
+              loading="eager"
+            />
           </SocialLink>
           <SocialLink
             href="https://www.linkedin.com/in/kdang1/"
             target="_blank"
           >
-            <Image src={linkedinLogo} width="16" height="16" alt="Github" />
+            <Image
+              src={linkedinLogo}
+              width="16"
+              height="16"
+              alt="LinkedIn"
+              loading="eager"
+            />
           </SocialLink>
-          <SocialLink href="mailto:dangkevin12@gmail.com">
+          <!-- TODO change to copy to clip board with notifs -->
+          <!-- <SocialLink href="mailto:dangkevin12@gmail.com" ariaLabel="Email">
             <Mail class="dark:text-white" size={18} />
-          </SocialLink>
+          </SocialLink> -->
+
+          <a href="/kevin-dang-cv.pdf" download>
+            <Button>
+              <Download
+                class="text-purple-800 dark:text-purple-300"
+                size={16}
+              />
+              <span class="text-sm text-purple-800 dark:text-purple-300"
+                >Resume</span
+              >
+            </Button>
+          </a>
         </div>
 
-        <div>
-          <h2
-            class="text-sm uppercase text-gray-500 dark:text-gray-400 font-semibold mb-2"
-          >
-            Education
-          </h2>
-          <div></div>
+        <div class="text-sm space-y-4">
+          <div class="text-sm">
+            <h2
+              class="uppercase text-gray-500 dark:text-gray-400 font-semibold mb-2"
+            >
+              Education
+            </h2>
+            <div>
+              <p class="dark:text-white font-medium">McMaster University</p>
+              <p class="text-gray-500 dark:text-gray-400">
+                B.Eng Mechatronics Engineering
+              </p>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div>
+            <h2
+              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
+            >
+              Languages
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {
+                languages.map((language) => (
+                  <Badge variant="teal">{language}</Badge>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div>
+            <h2
+              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
+            >
+              Client Side
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {
+                clientSideTech.map((tech) => (
+                  <Badge variant="purple">{tech}</Badge>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div>
+            <h2
+              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
+            >
+              Server Side
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {
+                serverSideTech.map((tech) => (
+                  <Badge variant="gray">{tech}</Badge>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div>
+            <h2
+              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
+            >
+              Databases
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {databases.map((db) => <Badge variant="teal">{db}</Badge>)}
+            </div>
+          </div>
+
+          <!-- Tools & Software -->
+          <div>
+            <h2
+              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
+            >
+              Tools & Software
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {tools.map((tool) => <Badge variant="purple">{tool}</Badge>)}
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- About me -->
-      <div>
-        <h2 class="text-3xl dark:text-white border-solid border-2">About Me</h2>
+      <div class="space-y-8">
+        <!-- About me -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+          <h2 class="text-xl font-bold mb-4 dark:text-white">About Me</h2>
+          <p class="text-gray-600 dark:text-gray-300">
+            I'm a passionate software engineer with expertise in full-stack
+            development and machine learning. With over 5 years of experience at
+            Borrowell, I've led the development of innovative financial
+            technology solutions that have created new revenue streams and
+            improved user experiences.
+          </p>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
+          <h2 class="text-xl font-bold mb-4 dark:text-white">
+            Work Experience
+          </h2>
+          <div class="space-y-6">
+            <!-- section -->
+            <div class="border-l-2 border-purple-500 pl-4 pb-6">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-semibold dark:text-white">
+                    Senior Full Stack Developer (Tech Lead)
+                  </h3>
+                  <p class="text-purple-600 dark:text-purple-400">Borrowell</p>
+                </div>
+                <span class="text-sm text-gray-500 dark:text-gray-400"
+                  >May 2022 - Present</span
+                >
+              </div>
+              <ul
+                class="mt-2 space-y-2 text-gray-600 dark:text-gray-300 text-sm"
+              >
+                <li>
+                  • Built and led the development of Canada's first self rent
+                  reporting service
+                </li>
+                <li>
+                  • Built a scalable cloud-based system for rental payment
+                  detection
+                </li>
+                <li>• Pioneered the adoption of a monorepo architecture</li>
+              </ul>
+            </div>
+
+            <!-- section -->
+          </div>
+        </div>
+
+        <!-- Projects -->
       </div>
     </div>
   </div>
