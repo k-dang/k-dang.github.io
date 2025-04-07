@@ -8,11 +8,11 @@ interface Props {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+
+const pattern = "/src/assets/random-shapes.svg";
 ---
 
-<div
-  class="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full"
->
+<div class="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full">
   <div
     class="h-40 bg-gradient-to-br from-purple-400 to-indigo-600 flex items-center justify-center"
   >
@@ -28,6 +28,8 @@ const { Content } = await render(project);
     <div class="flex flex-wrap gap-2">
       {project.data.tags?.map((tag) => <Badge variant="teal">{tag}</Badge>)}
     </div>
-    <Button class="mt-auto w-full dark:text-white">View details</Button>
+    <a href={project.data.githubUrl} target="_blank" class="mt-auto">
+      <Button variant="gray" class="w-full dark:text-white">View details</Button>
+    </a>
   </div>
 </div>

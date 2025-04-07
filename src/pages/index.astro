@@ -15,7 +15,6 @@ import WorkSection from "../components/WorkSection.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
 import * as about from "../data/about.md";
-// const { Content: AboutContent } = await render(about.Content);
 
 const languages = ["C#", "Python", "JavaScript", "Bash"];
 const clientSideTech = ["React", "Angular", "Astro", "React Native"];
@@ -27,14 +26,7 @@ const serverSideTech = [
   "Azure Functions",
   "Azure Service Bus",
 ];
-const tools = [
-  "Azure",
-  "Azure DevOps",
-  "Git",
-  "Github Actions",
-  "Docker",
-  "Terraform",
-];
+const tools = ["Azure", "Azure DevOps", "Git", "Github Actions", "Docker", "Terraform"];
 const databases = ["Microsoft SQL Server", "Cosmos DB", "MongoDB"];
 
 const workEntries = await getCollection("work");
@@ -52,9 +44,7 @@ const sortedProjects = projects.sort((a, b) => {
   <div class="p-4">
     <div class="grid md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] gap-4">
       <!-- side bar -->
-      <div
-        class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4"
-      >
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4">
         <div class="flex flex-col items-center text-center mb-6">
           <div
             class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4"
@@ -63,12 +53,8 @@ const sortedProjects = projects.sort((a, b) => {
             <h1 class="text-4xl dark:text-white">KD</h1>
           </div>
           <h1 class="text-2xl font-bold dark:text-white">Kevin Dang</h1>
-          <p class="text-gray-500 dark:text-gray-400">
-            Senior Software Engineer
-          </p>
-          <div
-            class="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2"
-          >
+          <p class="text-gray-500 dark:text-gray-400">Senior Software Engineer</p>
+          <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2">
             <MapPin size={14} class="mr-1" />
             <span>Toronto, Canada</span>
           </div>
@@ -77,25 +63,10 @@ const sortedProjects = projects.sort((a, b) => {
         <!-- social buttons -->
         <div class="flex justify-center gap-3 my-6">
           <SocialLink href="https://github.com/k-dang" target="_blank">
-            <Image
-              src={githubLogoWhite}
-              width="16"
-              height="16"
-              alt="Github"
-              loading="eager"
-            />
+            <Image src={githubLogoWhite} width="16" height="16" alt="Github" loading="eager" />
           </SocialLink>
-          <SocialLink
-            href="https://www.linkedin.com/in/kdang1/"
-            target="_blank"
-          >
-            <Image
-              src={linkedinLogo}
-              width="16"
-              height="16"
-              alt="LinkedIn"
-              loading="eager"
-            />
+          <SocialLink href="https://www.linkedin.com/in/kdang1/" target="_blank">
+            <Image src={linkedinLogo} width="16" height="16" alt="LinkedIn" loading="eager" />
           </SocialLink>
           <!-- TODO change to copy to clip board with notifs -->
           <!-- <SocialLink href="mailto:dangkevin12@gmail.com" ariaLabel="Email">
@@ -103,14 +74,9 @@ const sortedProjects = projects.sort((a, b) => {
           </SocialLink> -->
 
           <a href="/kevin-dang-cv.pdf" download>
-            <Button>
-              <Download
-                class="text-purple-800 dark:text-purple-300"
-                size={16}
-              />
-              <span class="text-sm text-purple-800 dark:text-purple-300"
-                >Resume</span
-              >
+            <Button variant="purple">
+              <Download class="text-purple-800 dark:text-purple-300" size={16} />
+              <span class="text-sm">Resume</span>
             </Button>
           </a>
         </div>
@@ -118,72 +84,46 @@ const sortedProjects = projects.sort((a, b) => {
         <div class="text-sm space-y-4">
           <!-- Education -->
           <div class="text-sm">
-            <h2
-              class="uppercase text-gray-500 dark:text-gray-400 font-semibold mb-2"
-            >
-              Education
-            </h2>
+            <h2 class="uppercase text-gray-500 dark:text-gray-400 font-semibold mb-2">Education</h2>
             <div>
               <p class="dark:text-white font-medium">McMaster University</p>
-              <p class="text-gray-500 dark:text-gray-400">
-                B.Eng Mechatronics Engineering
-              </p>
+              <p class="text-gray-500 dark:text-gray-400">B.Eng Mechatronics Engineering</p>
             </div>
           </div>
 
           <!-- Languages -->
           <div>
-            <h2
-              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
-            >
+            <h2 class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">
               Languages
             </h2>
             <div class="flex flex-wrap gap-2">
-              {
-                languages.map((language) => (
-                  <Badge variant="teal">{language}</Badge>
-                ))
-              }
+              {languages.map((language) => <Badge variant="teal">{language}</Badge>)}
             </div>
           </div>
 
           <!-- Client side -->
           <div>
-            <h2
-              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
-            >
+            <h2 class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">
               Client Side
             </h2>
             <div class="flex flex-wrap gap-2">
-              {
-                clientSideTech.map((tech) => (
-                  <Badge variant="purple">{tech}</Badge>
-                ))
-              }
+              {clientSideTech.map((tech) => <Badge variant="purple">{tech}</Badge>)}
             </div>
           </div>
 
           <!-- Server side -->
           <div>
-            <h2
-              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
-            >
+            <h2 class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">
               Server Side
             </h2>
             <div class="flex flex-wrap gap-2">
-              {
-                serverSideTech.map((tech) => (
-                  <Badge variant="gray">{tech}</Badge>
-                ))
-              }
+              {serverSideTech.map((tech) => <Badge variant="gray">{tech}</Badge>)}
             </div>
           </div>
 
           <!-- Databases -->
           <div>
-            <h2
-              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
-            >
+            <h2 class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">
               Databases
             </h2>
             <div class="flex flex-wrap gap-2">
@@ -193,9 +133,7 @@ const sortedProjects = projects.sort((a, b) => {
 
           <!-- Tools & Software -->
           <div>
-            <h2
-              class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2"
-            >
+            <h2 class="text-sm uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2">
               Tools & Software
             </h2>
             <div class="flex flex-wrap gap-2">
@@ -204,7 +142,7 @@ const sortedProjects = projects.sort((a, b) => {
           </div>
         </div>
       </div>
-
+      <!-- right col -->
       <div class="space-y-4">
         <!-- About me -->
         <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
@@ -215,21 +153,16 @@ const sortedProjects = projects.sort((a, b) => {
             <about.Content />
           </div>
         </div>
-
         <!-- Work Experience -->
         <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
-          <h2 class="text-xl font-bold mb-4 dark:text-white">
-            Work Experience
-          </h2>
+          <h2 class="text-xl font-bold mb-4 dark:text-white">Work Experience</h2>
           <div class="space-y-6">
             {sortedWorkEntries.map((work) => <WorkSection work={work} />)}
           </div>
         </div>
-
         <!-- Projects -->
         <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
           <h2 class="text-xl font-bold mb-4 dark:text-white">Projects</h2>
-
           <div class="grid sm:grid-cols-3 gap-4">
             {sortedProjects.map((project) => <ProjectCard project={project} />)}
           </div>
