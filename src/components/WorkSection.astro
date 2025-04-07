@@ -1,0 +1,28 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+interface Props {
+  work: CollectionEntry<"work">;
+}
+
+const { work } = Astro.props;
+const { Content } = await render(work);
+---
+
+<div class="border-l-2 border-purple-500 pl-4">
+  <div class="flex justify-between items-start">
+    <div>
+      <h3 class="font-semibold dark:text-white">
+        {work.data.title}
+      </h3>
+      <p class="text-purple-600 dark:text-purple-400">
+        {work.data.employer}
+      </p>
+    </div>
+    <span class="text-sm text-gray-500 dark:text-gray-400">
+      {work.data.employmentPeriod}
+    </span>
+  </div>
+  <div class="mt-2 space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+    <Content />
+  </div>
+</div>
