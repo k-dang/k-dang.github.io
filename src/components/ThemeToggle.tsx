@@ -19,7 +19,10 @@ export const ThemeToggle = () => {
   }, [theme]);
 
   const handleOnClick = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    const updatedTheme = theme === "dark" ? "light" : "dark";
+    setTheme(updatedTheme);
+
+    localStorage.setItem("theme", updatedTheme);
   };
 
   return (
