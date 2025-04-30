@@ -6,11 +6,11 @@ const { class: className, variant } = Astro.props;
   class:list={[
     `flex items-center justify-center rounded-md px-4 py-2 h-10 gap-1 hover:cursor-pointer transition-colors duration-200 ${className}`,
     {
-      "bg-purple-600 dark:bg-purple-700 hover:bg-purple-700 dark:hover:bg-purple-800 text-purple-800 dark:text-purple-200":
+      "bg-purple-600 dark:bg-purple-700 hover:bg-purple-700 dark:hover:bg-purple-800":
         variant === "purple",
     },
     {
-      "bg-gray-600 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-900 text-gray-800 dark:text-gray-200":
+      "bg-gray-200 dark:bg-gray-800 hover:bg-gray-700 dark:hover:bg-gray-900":
         variant === "gray",
     },
   ]}

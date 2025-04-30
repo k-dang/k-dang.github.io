@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 
 import Layout from "../layouts/Layout.astro";
 import { MapPin, Mail, Download } from "@lucide/astro";
@@ -47,7 +47,7 @@ const sortedProjects = projects.sort((a, b) => {
   <div class="h-2"></div>
   <div class="grid md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] gap-4">
     <!-- side bar -->
-    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4">
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4 shadow-sm">
       <div class="flex flex-col items-center text-center mb-6">
         <div
           class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4"
@@ -66,21 +66,49 @@ const sortedProjects = projects.sort((a, b) => {
       <!-- social buttons -->
       <div class="flex justify-center gap-3 my-6">
         <SocialLink href="https://github.com/k-dang" target="_blank">
-          <Image class="hidden dark:block" src={githubLogoWhite} width="16" height="16" alt="Github" loading="eager" />
-          <Image class="dark:hidden" src={githubLogo} width="16" height="16" alt="Github" loading="eager" />
+          <Image
+            class="hidden dark:block"
+            src={githubLogoWhite}
+            width="16"
+            height="16"
+            alt="Github"
+            loading="eager"
+          />
+          <Image
+            class="dark:hidden"
+            src={githubLogo}
+            width="16"
+            height="16"
+            alt="Github"
+            loading="eager"
+          />
         </SocialLink>
         <SocialLink href="https://www.linkedin.com/in/kdang1/" target="_blank">
-          <Image class="hidden dark:block" src={linkedInLogoWhite} width="16" height="16" alt="LinkedIn" loading="eager" />
-          <Image class="dark:hidden" src={linkedInLogo} width="16" height="16" alt="LinkedIn" loading="eager" />
+          <Image
+            class="hidden dark:block"
+            src={linkedInLogoWhite}
+            width="16"
+            height="16"
+            alt="LinkedIn"
+            loading="eager"
+          />
+          <Image
+            class="dark:hidden"
+            src={linkedInLogo}
+            width="16"
+            height="16"
+            alt="LinkedIn"
+            loading="eager"
+          />
         </SocialLink>
         <!-- TODO change to copy to clip board with notifs -->
         <!-- <SocialLink href="mailto:dangkevin12@gmail.com" ariaLabel="Email">
-            <Mail class="dark:text-white" size={18} />
+            <Mail class="dark:text-white" size={16} />
           </SocialLink> -->
 
         <a href="/kevin-dang-cv.pdf" download>
-          <Button variant="purple">
-            <Download class="text-purple-800 dark:text-purple-300" size={16} />
+          <Button variant="purple" class="text-white dark:text-purple-300">
+            <Download class="dark:text-purple-300" size={16} />
             <span class="text-sm">Resume</span>
           </Button>
         </a>
@@ -151,7 +179,7 @@ const sortedProjects = projects.sort((a, b) => {
     <!-- right col -->
     <div class="space-y-4">
       <!-- About me -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
         <h2 class="text-xl font-bold mb-4 dark:text-white">
           {about.frontmatter.title}
         </h2>
@@ -160,14 +188,14 @@ const sortedProjects = projects.sort((a, b) => {
         </div>
       </div>
       <!-- Work Experience -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
         <h2 class="text-xl font-bold mb-4 dark:text-white">Work Experience</h2>
         <div class="space-y-6">
           {sortedWorkEntries.map((work) => <WorkSection work={work} />)}
         </div>
       </div>
       <!-- Projects -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm">
         <h2 class="text-xl font-bold mb-4 dark:text-white">Projects</h2>
         <div class="grid sm:grid-cols-3 gap-4">
           {sortedProjects.map((project) => <ProjectCard project={project} />)}

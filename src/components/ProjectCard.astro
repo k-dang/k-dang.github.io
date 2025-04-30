@@ -12,7 +12,7 @@ const { Content } = await render(project);
 const pattern = "/src/assets/random-shapes.svg";
 ---
 
-<div class="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full">
+<div class=" dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full shadow-sm">
   <div
     class="h-40 bg-gradient-to-br from-purple-400 to-indigo-600 flex items-center justify-center"
   >
@@ -29,7 +29,7 @@ const pattern = "/src/assets/random-shapes.svg";
       {project.data.tags?.map((tag) => <Badge variant="teal">{tag}</Badge>)}
     </div>
     <a href={project.data.githubUrl} target="_blank" class="mt-auto">
-      <Button variant="gray" class="w-full dark:text-white">View on Github</Button>
+      <Button variant="gray" class="w-full dark:text-white text-sm">View on Github</Button>
     </a>
   </div>
 </div>
