@@ -16,7 +16,7 @@ import WorkSection from "../components/WorkSection.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
 import * as about from "../data/about.md";
-import { ThemeToggle } from "../components/ThemeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const languages = ["C#", "Python", "JavaScript", "Bash"];
 const clientSideTech = ["React", "Angular", "Astro", "React Native"];
@@ -43,11 +43,10 @@ const sortedProjects = projects.sort((a, b) => {
 ---
 
 <Layout>
-  <ThemeToggle client:load />
-  <div class="h-2"></div>
   <div class="grid md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] gap-4">
     <!-- side bar -->
     <div class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4 shadow-sm">
+      <ThemeToggle client:load />
       <div class="flex flex-col items-center text-center mb-6">
         <div
           class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4"
