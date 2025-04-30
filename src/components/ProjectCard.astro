@@ -1,25 +1,24 @@
 ---
 import { render, type CollectionEntry } from "astro:content";
-import Badge from "./Badge.astro";
-import Button from "./Button.astro";
+import Badge from "@/components/Badge.astro";
+import Button from "@/components/Button.astro";
 interface Props {
+  index: number;
   project: CollectionEntry<"projects">;
 }
 
-const { project } = Astro.props;
+const { index, project } = Astro.props;
 const { Content } = await render(project);
 
-const pattern = "/src/assets/random-shapes.svg";
+const patternUrls = [
+  "/src/assets/random-shapes.svg",
+  "/src/assets/kiwi.svg",
+  "/src/assets/anchors-away.svg",
+];
 ---
 
-<div class=" dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full shadow-sm">
-  <div
-    class="h-40 bg-gradient-to-br from-purple-400 to-indigo-600 flex items-center justify-center"
-  >
-    <span class="text-white text-xl font-bold">
-      {project.data.title}
-    </span>
-  </div>
+<div class="dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full border-1 dark:border-0">
+  <div class=`h-40 bg-[url(${patternUrls[index]})] bg-repeat dark:bg-gray-200`></div>
   <div class="p-4 space-y-2 flex flex-col flex-grow">
     <h3 class="font-semibold dark:text-white">{project.data.title}</h3>
     <div class="text-sm text-gray-600 dark:text-gray-300">

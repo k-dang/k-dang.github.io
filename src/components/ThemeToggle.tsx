@@ -31,6 +31,7 @@ export const ThemeToggle = () => {
       size="icon"
       className="rounded-full hover:cursor-pointer"
       onClick={handleOnClick}
+      aria-label="Toggle theme"
     >
       <Sun
         className="absolute rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
