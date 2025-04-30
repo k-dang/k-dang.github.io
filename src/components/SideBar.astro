@@ -1,0 +1,111 @@
+---
+import { Image } from "astro:assets";
+import { MapPin, Mail, Download } from "@lucide/astro";
+
+import githubLogo from "../assets/github-mark.svg";
+import githubLogoWhite from "../assets/github-mark-white.svg";
+import linkedInLogoWhite from "../assets/linkedIn-logo-white.png";
+import linkedInLogo from "../assets/linkedIn-logo.png";
+
+import SocialLink from "./SocialLink.astro";
+import Button from "../components/Button.astro";
+import { ThemeToggle } from "./ThemeToggle";
+import SideBarContent from "./SideBarContent.astro";
+import SideBarBadgeContent from "./SideBarBadgeContent.astro";
+
+const languages = ["C#", "Python", "JavaScript", "Bash"];
+const clientSideTech = ["React", "Angular", "Astro", "React Native"];
+const serverSideTech = [
+  "ASP.NET Core",
+  "Django",
+  "Node.js",
+  "Firebase",
+  "Azure Functions",
+  "Azure Service Bus",
+];
+const tools = ["Azure", "Azure DevOps", "Git", "Github Actions", "Docker", "Terraform"];
+const databases = ["Microsoft SQL Server", "Cosmos DB", "MongoDB"];
+---
+
+<div class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4 shadow-sm">
+  <ThemeToggle client:load />
+  <div class="flex flex-col items-center text-center mb-6">
+    <div
+      class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4"
+    >
+      <!-- TODO maybe use an image -->
+      <h1 class="text-4xl dark:text-white">KD</h1>
+    </div>
+    <h1 class="text-2xl font-bold dark:text-white">Kevin Dang</h1>
+    <p class="text-gray-500 dark:text-gray-400">Senior Software Engineer</p>
+    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2">
+      <MapPin size={14} class="mr-1" />
+      <span>Toronto, Canada</span>
+    </div>
+  </div>
+
+  <!-- social buttons -->
+  <div class="flex justify-center gap-3 my-6">
+    <SocialLink href="https://github.com/k-dang" target="_blank">
+      <Image
+        class="hidden dark:block"
+        src={githubLogoWhite}
+        width="16"
+        height="16"
+        alt="Github"
+        loading="eager"
+      />
+      <Image
+        class="dark:hidden"
+        src={githubLogo}
+        width="16"
+        height="16"
+        alt="Github"
+        loading="eager"
+      />
+    </SocialLink>
+    <SocialLink href="https://www.linkedin.com/in/kdang1/" target="_blank">
+      <Image
+        class="hidden dark:block"
+        src={linkedInLogoWhite}
+        width="16"
+        height="16"
+        alt="LinkedIn"
+        loading="eager"
+      />
+      <Image
+        class="dark:hidden"
+        src={linkedInLogo}
+        width="16"
+        height="16"
+        alt="LinkedIn"
+        loading="eager"
+      />
+    </SocialLink>
+    <!-- TODO change to copy to clip board with notifs -->
+    <!-- <SocialLink href="mailto:dangkevin12@gmail.com" ariaLabel="Email">
+          <Mail class="dark:text-white" size={16} />
+        </SocialLink> -->
+
+    <a href="/kevin-dang-cv.pdf" download>
+      <Button variant="purple" class="text-white dark:text-purple-200">
+        <Download class="dark:text-purple-300" size={16} />
+        <span class="text-sm">Resume</span>
+      </Button>
+    </a>
+  </div>
+
+  <div class="space-y-4">
+    <SideBarContent title="Education">
+      <div class="text-sm">
+        <p class="dark:text-white font-medium">McMaster University</p>
+        <p class="text-gray-500 dark:text-gray-400">B.Eng Mechatronics Engineering</p>
+      </div>
+    </SideBarContent>
+    <SideBarBadgeContent title="Languages" items={languages} badgeVariant="teal" />
+    <SideBarBadgeContent title="Front End" items={clientSideTech} badgeVariant="purple" />
+    <SideBarBadgeContent title="Back End" items={serverSideTech} badgeVariant="gray" />
+    <SideBarBadgeContent title="Databases" items={databases} badgeVariant="blue" />
+    <SideBarBadgeContent title="Tools & Software" items={tools} badgeVariant="stone" />
+  </div>
+</div>

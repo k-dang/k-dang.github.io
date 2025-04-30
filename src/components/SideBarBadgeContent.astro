@@ -1,0 +1,18 @@
+---
+import Badge from "./Badge.astro";
+
+interface Props {
+  title: string;
+  items: string[];
+  badgeVariant: "teal" | "purple" | "gray" | "blue" | "stone";
+}
+
+const { title, items, badgeVariant } = Astro.props;
+---
+
+<div>
+  <h2 class="uppercase font-semibold text-gray-500 dark:text-gray-400 mb-2 text-sm">{title}</h2>
+  <div class="flex flex-wrap gap-2">
+    {items.map((item) => <Badge variant={badgeVariant}>{item}</Badge>)}
+  </div>
+</div>
