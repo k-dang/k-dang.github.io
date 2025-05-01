@@ -6,6 +6,7 @@ import githubLogo from "../assets/github-mark.svg";
 import githubLogoWhite from "../assets/github-mark-white.svg";
 import linkedInLogoWhite from "../assets/linkedIn-logo-white.png";
 import linkedInLogo from "../assets/linkedIn-logo.png";
+import profileImg from "../assets/profile-img.png";
 
 import SocialLink from "./SocialLink.astro";
 import Button from "../components/Button.astro";
@@ -31,10 +32,15 @@ const databases = ["Microsoft SQL Server", "Cosmos DB", "MongoDB"];
   <ThemeToggle client:load />
   <div class="flex flex-col items-center text-center mb-6">
     <div
-      class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4"
+      class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full  flex items-center justify-center mb-4 overflow-hidden"
     >
-      <!-- TODO maybe use an image -->
-      <h1 class="text-4xl dark:text-white">KD</h1>
+      <Image
+        src={profileImg}
+        width={128}
+        height={128}
+        alt="Kevin Dang"
+        class="w-full h-full object-cover"
+      />
     </div>
     <h1 class="text-2xl font-bold dark:text-white">Kevin Dang</h1>
     <p class="text-gray-500 dark:text-gray-400">Senior Software Engineer</p>
