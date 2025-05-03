@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import "@fontsource-variable/inter";
+
+import { Toaster } from "@/components/ui/sonner";
 ---
 
 <!doctype html>
@@ -16,6 +18,7 @@ import "@fontsource-variable/inter";
     <div class="p-4">
       <slot />
     </div>
+    <Toaster client:load position="bottom-left" duration={1000} />
   </body>
 </html>
 

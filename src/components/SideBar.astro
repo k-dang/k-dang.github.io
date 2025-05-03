@@ -11,6 +11,7 @@ import profileImg from "../assets/profile-img.png";
 import SocialLink from "./SocialLink.astro";
 import Button from "../components/Button.astro";
 import { ThemeToggle } from "./ThemeToggle";
+import { EmailButton } from "./EmailButton";
 import SideBarContent from "./SideBarContent.astro";
 import SideBarBadgeContent from "./SideBarBadgeContent.astro";
 
@@ -32,7 +33,7 @@ const databases = ["Microsoft SQL Server", "Cosmos DB", "MongoDB"];
   <ThemeToggle client:load />
   <div class="flex flex-col items-center text-center mb-6">
     <div
-      class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full  flex items-center justify-center mb-4 overflow-hidden"
+      class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4 overflow-hidden"
     >
       <Image
         src={profileImg}
@@ -40,6 +41,7 @@ const databases = ["Microsoft SQL Server", "Cosmos DB", "MongoDB"];
         height={128}
         alt="Kevin Dang"
         class="w-full h-full object-cover"
+        loading="eager"
       />
     </div>
     <h1 class="text-2xl font-bold dark:text-white">Kevin Dang</h1>
@@ -88,11 +90,7 @@ const databases = ["Microsoft SQL Server", "Cosmos DB", "MongoDB"];
         loading="eager"
       />
     </SocialLink>
-    <!-- TODO change to copy to clip board with notifs -->
-    <!-- <SocialLink href="mailto:dangkevin12@gmail.com" ariaLabel="Email">
-          <Mail class="dark:text-white" size={16} />
-        </SocialLink> -->
-
+    <EmailButton client:load email="dangkevin12@gmail.com" />
     <a href="/kevin-dang-cv.pdf" download>
       <Button variant="purple" class="text-white dark:text-purple-200">
         <Download class="dark:text-purple-300" size={16} />
