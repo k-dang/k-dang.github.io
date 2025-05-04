@@ -46,9 +46,10 @@ All commands are run from the root of the project, from a terminal:
 Deployment to github pages is handled using github actions where deploys are triggered on every merge into the `main` branch
 
 ## TODOs
-- [ ] Add email button with copy to clipboard
+- [x] Add email button with copy to clipboard
 - [x] Update profile picture
 - [x] Modularize sections
 - [x] Use random patterns for projects
 - [ ] Fix font on tablet view
+- [x] Fix white flashing
 

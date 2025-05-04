@@ -23,21 +23,15 @@ const sortedProjects = projects.sort((a, b) => {
 <Layout>
   <div class="grid md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] gap-4">
     <SideBar />
-
     <div class="space-y-4">
-      <!-- About -->
       <ContentLayout title={about.frontmatter.title}>
         <about.Content />
       </ContentLayout>
-
-      <!-- Work Experience -->
       <ContentLayout title="Work Experience">
         <div class="space-y-6">
           {sortedWorkEntries.map((work) => <WorkSection work={work} />)}
         </div>
       </ContentLayout>
-
-      <!-- Projects -->
       <ContentLayout title="Projects">
         <div class="grid sm:grid-cols-3 gap-4">
           {sortedProjects.map((project, index) => <ProjectCard index={index} project={project} />)}
