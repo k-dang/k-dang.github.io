@@ -30,7 +30,9 @@ const patternUrls = [
       {project.data.tags?.map((tag) => <Badge variant="teal">{tag}</Badge>)}
     </div>
     <a href={project.data.githubUrl} target="_blank" class="mt-auto">
-      <Button variant="gray" class="w-full dark:text-white text-sm">View on Github</Button>
+      <Button variant="gray" class="w-full dark:text-white text-sm">
+        <span class="whitespace-nowrap overflow-hidden text-ellipsis">View on Github</span>
+      </Button>
     </a>
   </div>
 </div>
