@@ -45,6 +45,17 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kevin Dang",
+      "url": Astro.url.href,
+      "sameAs": [
+        "https://github.com/k-dang",
+        "https://www.linkedin.com/in/kdang1/"
+      ]
+    })} />
   </head>
   <body class="bg-gray-50 dark:bg-gray-900">
     <div class="p-4">
@@ -74,15 +85,3 @@ const {
   const isDark = getThemePreference() === "dark";
   document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 </script>
-
-<script
-  is:inline
-  type="application/ld+json"
-  set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Kevin Dang",
-    url: Astro.url.href,
-    sameAs: ["https://github.com/k-dang", "https://www.linkedin.com/in/kdang1/"],
-  })}
-/>
