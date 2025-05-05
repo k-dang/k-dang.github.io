@@ -3,6 +3,20 @@ import "../styles/global.css";
 import "@fontsource-variable/inter";
 
 import { Toaster } from "@/components/ui/sonner";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "Kevin Dang - Software Engineer",
+  description = "Personal website and portfolio of Kevin Dang, a software engineer passionate about building great web experiences.",
+  image = "../assets/profile-img.png",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -12,17 +26,25 @@ import { Toaster } from "@/components/ui/sonner";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Kevin Dang's Personal Website</title>
-    <script is:inline>
-      const getThemePreference = () => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-          return localStorage.getItem("theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      };
-      const isDark = getThemePreference() === "dark";
-      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-    </script>
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
   </head>
   <body class="bg-gray-50 dark:bg-gray-900">
     <div class="p-4">
@@ -41,3 +63,26 @@ import { Toaster } from "@/components/ui/sonner";
     font-family: "Inter Variable", sans-serif;
   }
 </style>
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+</script>
+
+<script
+  is:inline
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Kevin Dang",
+    url: Astro.url.href,
+    sameAs: ["https://github.com/k-dang", "https://www.linkedin.com/in/kdang1/"],
+  })}
+/>
