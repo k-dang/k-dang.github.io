@@ -51,5 +51,5 @@ Deployment to github pages is handled using github actions where deploys are tri
 - [x] Modularize sections
 - [x] Use random patterns for projects
 - [x] Fix white flashing
-- [ ] Fix font on tablet view
+- [x] Fix font on tablet view
 
