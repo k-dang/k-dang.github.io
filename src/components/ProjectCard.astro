@@ -12,7 +12,7 @@ const { Content } = await render(project);
 
 const patternUrls = [
   "bg-[url(/src/assets/random-shapes.svg)]",
-  "bg-[url(/src/assets/kiwi.svg)]",
+  "bg-[url(/src/assets/overlapping-circles.svg)]",
   "bg-[url(/src/assets/anchors-away.svg)]",
 ];
 ---
@@ -20,7 +20,7 @@ const patternUrls = [
 <div
   class="dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full border-1 dark:border-transparent"
 >
-  <div class=`h-40 ${patternUrls[index]} bg-repeat dark:bg-gray-200`></div>
+  <div class=`h-40 ${patternUrls[index]} bg-repeat dark:bg-gray-100`></div>
   <div class="p-4 space-y-2 flex flex-col flex-grow">
     <h3 class="font-semibold dark:text-white">{project.data.title}</h3>
     <div class="text-sm text-gray-600 dark:text-gray-300">
