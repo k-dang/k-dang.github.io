@@ -14,7 +14,6 @@ export const ModeToggle = () => {
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
     setTheme(isDarkMode ? "dark" : "light");
-    console.log(`[ModeToggle] Set Initial theme preference: isDark ${isDarkMode} at ${Date.now()}`);
   }, []);
 
   useEffect(() => {
@@ -22,9 +21,6 @@ export const ModeToggle = () => {
       theme === "dark" ||
       (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-    console.log(
-      `[ModeToggle] UseEffect theme preference ${theme}: isDark ${isDark} at ${Date.now()}`,
-    );
   }, [theme]);
 
   const handleOnClick = () => {
