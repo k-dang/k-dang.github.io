@@ -12,7 +12,7 @@ import SocialLink from "./SocialLink.astro";
 import Button from "../components/Button.astro";
 import { ThemeToggle } from "./ThemeToggle";
 import { EmailButton } from "./EmailButton";
-import SideBarContent from "./SideBarContent.astro";
+import SideBarContent from "../layouts/SideBarContentLayout.astro";
 import SideBarBadgeContent from "./SideBarBadgeContent.astro";
 
 const languages = ["C#", "Python", "TypeScript", "JavaScript", "Bash"];
@@ -71,6 +71,7 @@ const databases = ["SQL Server", "Postgres", "Cosmos DB", "MongoDB"];
         loading="eager"
       />
     </SocialLink>
+
     <SocialLink href="https://www.linkedin.com/in/kdang1/" target="_blank">
       <Image
         class="hidden dark:block"
@@ -89,7 +90,9 @@ const databases = ["SQL Server", "Postgres", "Cosmos DB", "MongoDB"];
         loading="eager"
       />
     </SocialLink>
+
     <EmailButton client:idle email="dangkevin12@gmail.com" />
+
     <a href="/kevin-dang-cv.pdf" download>
       <Button variant="purple" class="text-white dark:text-purple-200">
         <Download class="dark:text-purple-300" size={16} />
