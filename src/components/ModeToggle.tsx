@@ -4,11 +4,17 @@ import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const ModeToggle = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("dark") ? "dark" : "light";
+    }
+    return "light";
+  });
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
     setTheme(isDarkMode ? "dark" : "light");
+    console.log(`[ModeToggle] Set Initial theme preference: isDark ${isDarkMode} at ${Date.now()}`);
   }, []);
 
   useEffect(() => {
@@ -16,6 +22,9 @@ export const ModeToggle = () => {
       theme === "dark" ||
       (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    console.log(
+      `[ModeToggle] UseEffect theme preference ${theme}: isDark ${isDark} at ${Date.now()}`,
+    );
   }, [theme]);
 
   const handleOnClick = () => {
