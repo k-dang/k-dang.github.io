@@ -2,18 +2,18 @@
 import { Image } from "astro:assets";
 import { MapPin, Download } from "@lucide/astro";
 
-import githubLogo from "../assets/github-mark.svg";
-import githubLogoWhite from "../assets/github-mark-white.svg";
-import linkedInLogoWhite from "../assets/linkedIn-logo-white.png";
-import linkedInLogo from "../assets/linkedIn-logo.png";
-import profileImg from "../assets/profile-img.png";
+import githubLogo from "@/assets/github-mark.svg";
+import githubLogoWhite from "@/assets/github-mark-white.svg";
+import linkedInLogoWhite from "@/assets/linkedIn-logo-white.png";
+import linkedInLogo from "@/assets/linkedIn-logo.png";
+import profileImg from "@/assets/profile-img.png";
 
-import SocialLink from "./SocialLink.astro";
-import Button from "../components/Button.astro";
-import { ModeToggle } from "./ModeToggle";
-import { EmailButton } from "./EmailButton";
-import SideBarContent from "../layouts/SideBarContentLayout.astro";
-import SideBarBadgeContent from "./SideBarBadgeContent.astro";
+import SocialLink from "@/components/SocialLink.astro";
+import Button from "@/components/Button.astro";
+import { ModeToggle } from "@/components/ModeToggle";
+import { EmailButton } from "@/components/EmailButton";
+import SideBarContent from "@/layouts/SideBarContentLayout.astro";
+import SideBarBadgeContent from "@/components/SideBarBadgeContent.astro";
 
 const languages = ["C#", "Python", "TypeScript", "JavaScript", "Bash"];
 const clientSideTech = ["React", "Angular", "Astro", "React Native"];

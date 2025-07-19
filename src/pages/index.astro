@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../layouts/Layout.astro";
-import ContentLayout from "../layouts/ContentLayout.astro";
-import WorkSection from "../components/WorkSection.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import WorkSection from "@/components/WorkSection.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 
-import * as about from "../data/about.md";
+import * as about from "@/data/about.md";
 import SideBar from "@/components/SideBar.astro";
 
 const workEntries = await getCollection("work");
