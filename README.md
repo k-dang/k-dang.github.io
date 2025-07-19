@@ -54,4 +54,4 @@ Deployment to github pages is handled using github actions where deploys are tri
 - [x] Fix white flashing
 - [x] preload font
 - [x] Add new badge sections
-- [ ] Consolidate buttons
+- [x] Consolidate buttons
