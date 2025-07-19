@@ -10,7 +10,7 @@ import profileImg from "../assets/profile-img.png";
 
 import SocialLink from "./SocialLink.astro";
 import Button from "../components/Button.astro";
-import { ThemeToggle } from "./ThemeToggle";
+import { ModeToggle } from "./ThemeToggle";
 import { EmailButton } from "./EmailButton";
 import SideBarContent from "../layouts/SideBarContentLayout.astro";
 import SideBarBadgeContent from "./SideBarBadgeContent.astro";
@@ -18,19 +18,21 @@ import SideBarBadgeContent from "./SideBarBadgeContent.astro";
 const languages = ["C#", "Python", "TypeScript", "JavaScript", "Bash"];
 const clientSideTech = ["React", "Angular", "Astro", "React Native"];
 const serverSideTech = [
-  "ASP.NET Core",
+  ".NET",
   "Django",
   "Node",
   "Firebase",
   "Azure Functions",
   "Azure Service Bus",
+  "Cloudflare Workers",
 ];
-const tools = ["Azure", "Azure DevOps", "Git", "Github Actions", "Docker", "Terraform"];
+// const frameworks = ["Next.js", "Astro"]; 
+const tools = ["Azure", "Azure DevOps", "Vercel", "Git", "Github Actions", "Docker", "Terraform"];
 const databases = ["SQL Server", "Postgres", "Cosmos DB", "MongoDB"];
 ---
 
 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4 shadow-sm">
-  <ThemeToggle client:idle />
+  <ModeToggle client:load />
   <div class="flex flex-col items-center text-center mb-6">
     <div
       class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4 overflow-hidden"

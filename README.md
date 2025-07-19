@@ -50,6 +50,7 @@ Deployment to github pages is handled using github actions where deploys are tri
 - [x] Update profile picture
 - [x] Modularize sections
 - [x] Use random patterns for projects
-- [x] Fix white flashing
 - [x] Fix font on tablet view
-
+- [ ] Fix white flashing
+- [ ] Consolidate buttons
+- [ ] Add new badge sections
