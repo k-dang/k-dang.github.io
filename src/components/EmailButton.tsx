@@ -17,12 +17,7 @@ export const EmailButton = ({ email }: EmailButtonProps) => {
   };
 
   return (
-    <Button
-      variant="outline"
-      size="icon"
-      className="rounded-md h-10 w-10 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-950 hover:bg-gray-100 dark:hover:bg-gray-800 hover:cursor-pointer transition-colors duration-200"
-      onClick={handleOnClick}
-    >
+    <Button variant="outline" size="icon" onClick={handleOnClick}>
       <Mail />
     </Button>
   );

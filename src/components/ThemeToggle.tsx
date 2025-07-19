@@ -29,7 +29,7 @@ export const ThemeToggle = () => {
     <Button
       variant="outline"
       size="icon"
-      className="rounded-full hover:cursor-pointer"
+      className="rounded-full"
       onClick={handleOnClick}
       aria-label="Toggle theme"
     >
