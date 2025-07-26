@@ -6,4 +6,4 @@ githubUrl: "https://github.com/k-dang/k-dang.github.io"
 tags: ["Astro"]
 ---
 
-The website you are currently viewing 😊
+Built with Astro 😊, this personal site showcases my portfolio, skills, and work experience.

@@ -5,4 +5,4 @@ githubUrl: "https://github.com/k-dang/FileRename"
 tags: ["C#"]
 ---
 
-A desktop application that makes it easier to batch rename files on your local file system
+This desktop application simplifies the process of batch renaming files using C#. It includes functionalities such as pattern matching, preview changes, and undo support.

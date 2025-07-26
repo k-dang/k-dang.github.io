@@ -5,4 +5,4 @@ githubUrl: "https://github.com/k-dang/manga-reader-app"
 tags: ["React Native", "Expo"]
 ---
 
-A mobile app that grabs and displays manga, includes library functionality and progress tracking
+This Expo React Native app fetches and displays manga from various sources, featuring a user-friendly library system with progress tracking.

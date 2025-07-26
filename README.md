@@ -55,3 +55,4 @@ Deployment to github pages is handled using github actions where deploys are tri
 - [x] preload font
 - [x] Add new badge sections
 - [x] Consolidate buttons
+- [ ] Update icons
