@@ -8,10 +8,8 @@ import SideBarContent from "@/layouts/SideBarContentLayout.astro";
 import SideBarBadgeContent from "@/components/SideBarBadgeContent.astro";
 
 // Assets
-import githubLogo from "@/assets/github-mark.svg";
-import githubLogoWhite from "@/assets/github-mark-white.svg";
-import linkedInLogoWhite from "@/assets/linkedIn-logo-white.png";
-import linkedInLogo from "@/assets/linkedIn-logo.png";
+import githubLogo from "@/assets/github.svg";
+import linkedInLogo from "@/assets/linkedIn.svg";
 import profileImg from "@/assets/profile-img.png";
 
 const languages = ["C#", "Python", "TypeScript", "JavaScript", "Bash"];
@@ -64,15 +62,7 @@ const devopsTools = [
     <a target="_blank" href="https://github.com/k-dang" aria-label="Github">
       <Button variant="outline" size="icon">
         <Image
-          class="hidden dark:block"
-          src={githubLogoWhite}
-          width="16"
-          height="16"
-          alt="Github"
-          loading="eager"
-        />
-        <Image
-          class="dark:hidden"
+          class="invert dark:invert-0"
           src={githubLogo}
           width="16"
           height="16"
@@ -85,15 +75,7 @@ const devopsTools = [
     <a target="_blank" href="https://www.linkedin.com/in/kdang1/" aria-label="LinkedIn">
       <Button variant="outline" size="icon">
         <Image
-          class="hidden dark:block"
-          src={linkedInLogoWhite}
-          width="16"
-          height="16"
-          alt="LinkedIn"
-          loading="eager"
-        />
-        <Image
-          class="dark:hidden"
+          class="dark:invert invert-0"
           src={linkedInLogo}
           width="16"
           height="16"
