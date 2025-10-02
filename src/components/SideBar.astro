@@ -10,7 +10,7 @@ import SideBarBadgeContent from "@/components/SideBarBadgeContent.astro";
 // Assets
 import githubLogo from "@/assets/github.svg";
 import linkedInLogo from "@/assets/linkedIn.svg";
-import profileImg from "@/assets/profile-img.png";
+import portraitImg from "@/assets/portrait.png";
 
 const languages = ["C#", "Python", "TypeScript", "JavaScript", "Bash"];
 const webFrameworks = ["React", "Next.js", "Astro", "Angular", "Django"];
@@ -42,11 +42,11 @@ const devopsTools = [
       class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4 overflow-hidden"
     >
       <Image
-        src={profileImg}
+        src={portraitImg}
         width={128}
         height={128}
         alt="profile"
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover object-top"
         loading="eager"
       />
     </div>
