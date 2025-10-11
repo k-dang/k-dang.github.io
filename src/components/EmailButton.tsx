@@ -12,7 +12,7 @@ export const EmailButton = ({ email }: EmailButtonProps) => {
       toast("Copied to clipboard");
       navigator.clipboard.writeText(email);
     } catch (err) {
-      console.error("Failed to copy email:", err);
+      toast("Failed to copy email: " + err);
     }
   };
 
