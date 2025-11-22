@@ -1,7 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import { render, type CollectionEntry } from "astro:content";
 import Badge from "@/components/Badge.astro";
 import { Button } from "@/components/ui/button";
+
+import fantasyBasketball from "@/assets/fantasy-basketball.png";
+import termdle from "@/assets/termdle.png";
 
 interface Props {
   index: number;
@@ -16,12 +20,35 @@ const patternUrls = [
   "bg-[url(/src/assets/overlapping-circles.svg)]",
   "bg-[url(/src/assets/anchors-away.svg)]",
 ];
+
+// Map image paths to imported images
+const imageMap: Record<string, typeof fantasyBasketball> = {
+  "fantasy-basketball.png": fantasyBasketball,
+  "termdle.png": termdle,
+};
+
+// Determine which image to use: from project.data.image or fallback to pattern by index
+const projectImage = project.data.image ? imageMap[project.data.image] : null;
 ---
 
 <div
-  class="dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full border dark:border-transparent"
+  class="dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full border dark:border-transparent transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-900/10 dark:hover:shadow-gray-900/30 cursor-pointer"
 >
-  <div class=`h-40 ${patternUrls[index]} bg-repeat dark:bg-gray-100`></div>
+  {
+    projectImage ? (
+      <div class="h-40 overflow-hidden">
+        <Image
+          src={projectImage}
+          alt={project.data.title}
+          width={400}
+          height={160}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    ) : (
+      <div class={`h-40 ${patternUrls[index]} bg-repeat dark:bg-gray-100`} />
+    )
+  }
   <div class="p-4 space-y-2 flex flex-col grow">
     <h3 class="font-semibold dark:text-white">{project.data.title}</h3>
     <div class="text-sm text-gray-600 dark:text-gray-300">
@@ -30,18 +57,20 @@ const patternUrls = [
     <div class="flex flex-wrap gap-2">
       {project.data.tags?.map((tag: string) => <Badge variant="teal">{tag}</Badge>)}
     </div>
-    {project.data.url ? (
-      <a href={project.data.url} target="_blank" class="mt-auto">
-        <Button variant="outline" size="full">
-          <span class="whitespace-nowrap overflow-hidden text-ellipsis">Visit Site</span>
-        </Button>
-      </a>
-    ) : project.data.githubUrl ? (
-      <a href={project.data.githubUrl} target="_blank" class="mt-auto">
-        <Button variant="outline" size="full">
-          <span class="whitespace-nowrap overflow-hidden text-ellipsis">View on Github</span>
-        </Button>
-      </a>
-    ) : null}
+    {
+      project.data.url ? (
+        <a href={project.data.url} target="_blank" class="mt-auto">
+          <Button variant="outline" size="full">
+            <span class="whitespace-nowrap overflow-hidden text-ellipsis">Visit Site</span>
+          </Button>
+        </a>
+      ) : project.data.githubUrl ? (
+        <a href={project.data.githubUrl} target="_blank" class="mt-auto">
+          <Button variant="outline" size="full">
+            <span class="whitespace-nowrap overflow-hidden text-ellipsis">View on Github</span>
+          </Button>
+        </a>
+      ) : null
+    }
   </div>
 </div>
