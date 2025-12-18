@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: "Full Stack Developer"
 employer: "Borrowell"
 employmentPeriod: "Oct 2018 - May 2021"

@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title: "Web Application Developer"
 employer: "Kanetix"
 employmentPeriod: "Sep 2017 - Oct 2018"

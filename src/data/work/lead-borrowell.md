@@ -1,8 +1,8 @@
 ---
-order: 1
+order: 2
 title: "Senior Full Stack Developer (Tech Lead)"
 employer: "Borrowell"
-employmentPeriod: "May 2022 - Current"
+employmentPeriod: "May 2022 - Dec 2025"
 ---
 
 Built and led the development of Canada's first self rent reporting service, which unlocked a new recurring revenue stream generating over $1M

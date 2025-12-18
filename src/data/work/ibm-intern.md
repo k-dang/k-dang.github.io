@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title: "Software Developer Intern"
 employer: "IBM"
 employmentPeriod: "May 2015 - Aug 2016"
