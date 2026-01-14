@@ -1,8 +1,8 @@
 ---
 order: 1
-title: "??? ??? ???"
-employer: "???"
+title: "Senior Software Developer"
+employer: "Wealthsimple"
 employmentPeriod: "Jan 2026 - Current"
 ---
 
-Incoming...
+Financial Risk Engineering
