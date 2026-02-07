@@ -38,10 +38,23 @@ const devopsTools = [
 ---
 
 <div class="bg-white dark:bg-gray-800 rounded-xl p-6 h-fit md:sticky top-4 shadow-sm">
-  <ModeToggle client:load />
+  <div class="flex justify-between">
+    <ModeToggle client:load />
+    <CursorFollowerSprite
+      client:load
+      spriteSrc={walkingSpriteSheet.src}
+      frameWidth={256}
+      frameHeight={256}
+      frameCount={4}
+      fps={6}
+      scale={0.28}
+      offsetX={10}
+      offsetY={10}
+    />
+  </div>
   <div class="flex flex-col items-center text-center mb-6">
     <div
-      class="w-32 h-32 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4 overflow-hidden"
+      class="w-32 h-32 bg-linear-to-br from-purple-400 to-indigo-600 rounded-full flex items-center justify-center mb-4 overflow-hidden"
     >
       <Image
         src={portraitImg}
@@ -60,7 +73,7 @@ const devopsTools = [
     </div>
   </div>
 
-  <div class="flex justify-center gap-3 mb-6">
+  <div class="flex justify-center gap-2 mb-6">
     <a target="_blank" href="https://github.com/k-dang" aria-label="Github">
       <Button variant="outline" size="icon">
         <Image
@@ -88,18 +101,6 @@ const devopsTools = [
     </a>
 
     <EmailButton client:idle email="dangkevin12@gmail.com" />
-    <CursorFollowerSprite
-      client:load
-      spriteSrc={walkingSpriteSheet.src}
-      frameWidth={256}
-      frameHeight={256}
-      frameCount={4}
-      fps={6}
-      scale={0.28}
-      offsetX={10}
-      offsetY={10}
-    />
-
     <a href="/kevin-dang-cv.pdf" download>
       <Button variant="purple" size="default">
         <Download />

@@ -235,6 +235,7 @@ export const CursorFollowerSprite = ({
         <Button
           variant="outline"
           size="icon"
+          className="rounded-full"
           aria-pressed={isEnabled}
           aria-label={isEnabled ? "Disable sprite follower" : "Enable sprite follower"}
           title={isEnabled ? "Disable sprite follower" : "Enable sprite follower"}
