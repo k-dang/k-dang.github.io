@@ -1,0 +1,24 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import { SpriteAnimator } from "@/components/SpriteAnimator";
+
+import spriteSheet from "@/assets/walking_sheet_transparent.png";
+---
+
+<Layout title="Sprite Animation" description="Canvas 2D sprite sheet animation demo">
+  <div class="max-w-2xl mx-auto">
+    <ContentLayout title="Sprite Animation">
+      <SpriteAnimator
+        client:load
+        src={spriteSheet.src}
+        frameWidth={256}
+        frameHeight={256}
+        frameCount={4}
+        rows={2}
+        fps={4}
+        scale={1}
+      />
+    </ContentLayout>
+  </div>
+</Layout>

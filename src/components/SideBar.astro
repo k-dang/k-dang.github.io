@@ -4,6 +4,7 @@ import { MapPin, Download } from "@lucide/astro";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ModeToggle";
 import { EmailButton } from "@/components/EmailButton";
+import { CursorFollowerSprite } from "@/components/CursorFollowerSprite";
 import SideBarContent from "@/layouts/SideBarContentLayout.astro";
 import SideBarBadgeContent from "@/components/SideBarBadgeContent.astro";
 
@@ -11,6 +12,7 @@ import SideBarBadgeContent from "@/components/SideBarBadgeContent.astro";
 import githubLogo from "@/assets/github.svg";
 import linkedInLogo from "@/assets/linkedIn.svg";
 import portraitImg from "@/assets/portrait.png";
+import walkingSpriteSheet from "@/assets/walking_sheet_transparent.png";
 
 const languages = ["C#", "Python", "TypeScript", "JavaScript", "Bash"];
 const webFrameworks = ["React", "Next.js", "Astro", "Angular", "Django"];
@@ -86,6 +88,17 @@ const devopsTools = [
     </a>
 
     <EmailButton client:idle email="dangkevin12@gmail.com" />
+    <CursorFollowerSprite
+      client:load
+      spriteSrc={walkingSpriteSheet.src}
+      frameWidth={256}
+      frameHeight={256}
+      frameCount={4}
+      fps={6}
+      scale={0.28}
+      offsetX={10}
+      offsetY={10}
+    />
 
     <a href="/kevin-dang-cv.pdf" download>
       <Button variant="purple" size="default">
