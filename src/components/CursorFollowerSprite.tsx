@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Pause, Play } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -246,14 +247,18 @@ export const CursorFollowerSprite = ({
       </div>
 
       {isEnabled && (
-        <canvas
-          ref={canvasRef}
-          width={canvasWidth}
-          height={canvasHeight}
-          className="pointer-events-none fixed left-0 top-0 z-50"
-          style={{ imageRendering: "pixelated" }}
-          aria-hidden="true"
-        />
+        typeof document !== "undefined" &&
+        createPortal(
+          <canvas
+            ref={canvasRef}
+            width={canvasWidth}
+            height={canvasHeight}
+            className="pointer-events-none fixed left-0 top-0 z-[100]"
+            style={{ imageRendering: "pixelated" }}
+            aria-hidden="true"
+          />,
+          document.body
+        )
       )}
     </>
   );
