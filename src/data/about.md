@@ -2,10 +2,10 @@
 title: "About Me"
 ---
 
-I'm a passionate software engineer with expertise in full-stack development and machine learning.
+I'm a software engineer specializing in full-stack development and fin tech.
 <br />
 <br />
-With over 7 years of experience, I've led the development of innovative financial technology solutions that have created new revenue streams and improved user experiences. 
+With over 8 years of experience, I currently work at Wealthsimple on the Financial Risk Engineering team. Previously, I led the development of innovative fintech products at Borrowell that created new revenue streams and improved user experiences.
 <br />
 <br />
 My current interests are in the js/ts ecosystem and AI coding tools.
