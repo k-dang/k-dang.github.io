@@ -8,21 +8,24 @@ const { work } = Astro.props;
 const { Content } = await render(work);
 ---
 
-<div class="border-l-2 border-purple-500 pl-4">
-  <div class="flex justify-between items-start">
-    <div>
-      <h3 class="font-semibold dark:text-white">
-        {work.data.title}
-      </h3>
-      <p class="text-purple-600 dark:text-purple-400">
-        {work.data.employer}
-      </p>
-    </div>
-    <span class="text-sm text-gray-500 dark:text-gray-400">
+<div class="relative border-l border-border pl-6 pb-8 last:pb-0">
+  <span
+    class="absolute -left-[4.5px] top-1.5 size-2 rounded-full bg-muted-foreground ring-4 ring-background"
+    aria-hidden="true"
+  >
+  </span>
+  <div>
+    <h3 class="font-semibold text-foreground">
+      {work.data.title}
+    </h3>
+    <p class="text-sm font-medium text-foreground">
+      {work.data.employer}
+    </p>
+    <p class="mt-0.5 text-xs text-muted-foreground">
       {work.data.employmentPeriod}
-    </span>
+    </p>
   </div>
-  <div class="mt-2 space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+  <div class="mt-2 space-y-2 text-muted-foreground text-sm leading-relaxed max-w-[68ch]">
     <Content />
   </div>
 </div>

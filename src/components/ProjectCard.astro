@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { render, type CollectionEntry } from "astro:content";
+import { ArrowUpRight } from "@lucide/astro";
 import Badge from "@/components/Badge.astro";
-import { Button } from "@/components/ui/button";
 
 import fantasyBasketball from "@/assets/fantasy-basketball.png";
 import termdle from "@/assets/termdle.png";
@@ -29,48 +29,52 @@ const imageMap: Record<string, typeof fantasyBasketball> = {
 
 // Determine which image to use: from project.data.image or fallback to pattern by index
 const projectImage = project.data.image ? imageMap[project.data.image] : null;
+
+// Outbound link + label (entire row is the affordance)
+const href = project.data.url ?? project.data.githubUrl ?? null;
+const linkLabel = project.data.url ? "Visit Site" : project.data.githubUrl ? "View on Github" : null;
+
+const Wrapper = href ? "a" : "div";
+const wrapperProps = href ? { href, target: "_blank", rel: "noopener noreferrer" } : {};
 ---
 
-<div
-  class="dark:bg-gray-700 rounded-lg overflow-hidden flex flex-col h-full border dark:border-transparent transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-gray-900/10 dark:hover:shadow-gray-900/30 cursor-pointer"
+<Wrapper
+  {...wrapperProps}
+  class="group flex flex-col gap-4 rounded-lg p-3 transition-colors sm:flex-row sm:gap-5 hover:bg-secondary/60"
 >
-  {
-    projectImage ? (
-      <div class="h-40 overflow-hidden">
+  <div
+    class="aspect-16/10 w-full shrink-0 overflow-hidden rounded-md border border-border bg-secondary sm:w-48"
+  >
+    {
+      projectImage ? (
         <Image
           src={projectImage}
           alt={project.data.title}
-          width={400}
-          height={160}
-          class="w-full h-full object-cover"
+          width={384}
+          height={240}
+          class="h-full w-full object-cover"
         />
-      </div>
-    ) : (
-      <div class={`h-40 ${patternUrls[index]} bg-repeat dark:bg-gray-100`} />
-    )
-  }
-  <div class="p-4 space-y-2 flex flex-col grow">
-    <h3 class="font-semibold dark:text-white">{project.data.title}</h3>
-    <div class="text-sm text-gray-600 dark:text-gray-300">
-      <Content />
-    </div>
-    <div class="flex flex-wrap gap-2">
-      {project.data.tags?.map((tag: string) => <Badge variant="teal">{tag}</Badge>)}
-    </div>
-    {
-      project.data.url ? (
-        <a href={project.data.url} target="_blank" class="mt-auto">
-          <Button variant="outline" size="full">
-            <span class="whitespace-nowrap overflow-hidden text-ellipsis">Visit Site</span>
-          </Button>
-        </a>
-      ) : project.data.githubUrl ? (
-        <a href={project.data.githubUrl} target="_blank" class="mt-auto">
-          <Button variant="outline" size="full">
-            <span class="whitespace-nowrap overflow-hidden text-ellipsis">View on Github</span>
-          </Button>
-        </a>
-      ) : null
+      ) : (
+        <div class={`h-full w-full ${patternUrls[index]} bg-repeat dark:bg-[oklch(0.92_0.006_264)]`} />
+      )
     }
   </div>
-</div>
+
+  <div class="flex min-w-0 flex-col gap-2">
+    <h3 class="font-semibold text-foreground">{project.data.title}</h3>
+    <div class="text-sm text-muted-foreground leading-relaxed">
+      <Content />
+    </div>
+    <div class="flex flex-wrap gap-1.5">
+      {project.data.tags?.map((tag: string) => <Badge>{tag}</Badge>)}
+    </div>
+    {
+      linkLabel && (
+        <span class="mt-1 inline-flex items-center gap-1 text-sm font-medium text-foreground">
+          {linkLabel}
+          <ArrowUpRight size={15} class="text-muted-foreground" />
+        </span>
+      )
+    }
+  </div>
+</Wrapper>

@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-31T00:00:00Z",
+  "title": "Design System: Kevin Dang — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink-well": {
+        "role": "neutral",
+        "displayName": "Ink Well",
+        "canonical": "oklch(0.13 0.028 262)",
+        "tonalRamp": [
+          "oklch(0.15 0.028 262)",
+          "oklch(0.22 0.028 262)",
+          "oklch(0.31 0.028 262)",
+          "oklch(0.42 0.022 262)",
+          "oklch(0.54 0.018 262)",
+          "oklch(0.67 0.014 262)",
+          "oklch(0.80 0.008 262)",
+          "oklch(0.93 0.004 262)"
+        ]
+      },
+      "surface-elevated": {
+        "role": "neutral",
+        "displayName": "Surface Elevated",
+        "canonical": "oklch(0.21 0.034 265)",
+        "tonalRamp": [
+          "oklch(0.15 0.034 265)",
+          "oklch(0.21 0.034 265)",
+          "oklch(0.30 0.030 265)",
+          "oklch(0.40 0.024 265)",
+          "oklch(0.52 0.018 265)",
+          "oklch(0.65 0.013 265)",
+          "oklch(0.80 0.008 265)",
+          "oklch(0.94 0.004 265)"
+        ]
+      },
+      "accent-violet": {
+        "role": "primary",
+        "displayName": "Accent Violet",
+        "canonical": "oklch(0.55 0.19 268)",
+        "tonalRamp": [
+          "oklch(0.18 0.06 268)",
+          "oklch(0.27 0.10 268)",
+          "oklch(0.36 0.15 268)",
+          "oklch(0.45 0.18 268)",
+          "oklch(0.55 0.19 268)",
+          "oklch(0.65 0.17 268)",
+          "oklch(0.75 0.12 268)",
+          "oklch(0.87 0.06 268)"
+        ]
+      },
+      "chip-core": {
+        "role": "neutral",
+        "displayName": "Chip Core",
+        "canonical": "oklch(0.3 0.033 256.848)",
+        "note": "Dedicated neutral fill for core skill chips. Per-theme: oklch(0.3 0.033 256.848) dark, oklch(0.93 0.006 264.531) light. Its own token because a fixed surface fill collapsed into the near-white page in light mode. Carries chip tier by fill, never by hue.",
+        "tonalRamp": [
+          "oklch(0.15 0.033 257)",
+          "oklch(0.21 0.033 257)",
+          "oklch(0.30 0.033 257)",
+          "oklch(0.42 0.026 257)",
+          "oklch(0.54 0.020 257)",
+          "oklch(0.67 0.014 257)",
+          "oklch(0.80 0.009 261)",
+          "oklch(0.93 0.006 264)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Name in sidebar. One instance per page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles: About, Work Experience, Projects."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Job titles, project titles, employer names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose. 65-75ch max line length."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Badge text, timestamps, metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-hover",
+        "value": "0 8px 24px oklch(0 0 0 / 30%)",
+        "purpose": "Project card on hover only. Not at rest."
+      },
+      {
+        "name": "panel-rest",
+        "value": "0 1px 3px oklch(0 0 0 / 12%)",
+        "purpose": "Subtle ambient shadow on content panels in light mode."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-state",
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "Default easing for state transitions (color, border, background)."
+      },
+      {
+        "name": "ease-lift",
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "Card hover scale. Duration: 200ms."
+      },
+      {
+        "name": "ease-press",
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "purpose": "Button active scale (98%). Duration: 100ms."
+      }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px", "note": "Sidebar activates. Grid becomes 2-column." },
+      { "name": "lg", "value": "1024px", "note": "Sidebar expands from 300px to 400px." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Signature CTA — Resume download. The only button carrying the accent color.",
+      "html": "<button class=\"ds-btn-primary\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"7 10 12 15 17 10\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"/></svg>Resume</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: oklch(0.55 0.19 268); color: oklch(0.985 0.002 248); border: none; border-radius: 6px; padding: 0 16px; height: 36px; font-family: 'Inter Variable', sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background-color 200ms cubic-bezier(0,0,0.2,1), transform 100ms cubic-bezier(0,0,0.2,1); white-space: nowrap; } .ds-btn-primary:hover { background-color: oklch(0.50 0.19 268); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px oklch(0.55 0.19 268 / 50%); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary actions: Visit Site, View on Github, social links.",
+      "html": "<button class=\"ds-btn-outline\">Visit Site</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background-color: transparent; color: oklch(0.985 0.002 248); border: 1px solid oklch(1 0 0 / 10%); border-radius: 6px; padding: 0 16px; height: 36px; font-family: 'Inter Variable', sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background-color 200ms cubic-bezier(0,0,0.2,1), transform 100ms cubic-bezier(0,0,0.2,1); } .ds-btn-outline:hover { background-color: oklch(0.278 0.033 257); } .ds-btn-outline:active { transform: scale(0.98); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 3px oklch(0.707 0.022 261 / 50%); }"
+    },
+    {
+      "name": "Icon Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "36×36 square button for social icons (GitHub, LinkedIn, Email).",
+      "html": "<button class=\"ds-btn-icon\" aria-label=\"GitHub\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z\"/></svg></button>",
+      "css": ".ds-btn-icon { display: inline-flex; align-items: center; justify-content: center; background-color: transparent; color: oklch(0.985 0.002 248); border: 1px solid oklch(1 0 0 / 10%); border-radius: 6px; width: 36px; height: 36px; cursor: pointer; transition: background-color 200ms cubic-bezier(0,0,0.2,1), transform 100ms cubic-bezier(0,0,0.2,1); } .ds-btn-icon:hover { background-color: oklch(0.278 0.033 257); } .ds-btn-icon:active { transform: scale(0.98); } .ds-btn-icon:focus-visible { outline: none; box-shadow: 0 0 0 3px oklch(0.707 0.022 261 / 50%); }"
+    },
+    {
+      "name": "Skill Chip",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Neutral skill chip. Static, non-interactive. Two tiers split by fill, never by hue: core chips carry the solid chip-core fill (font-medium); secondary chips are outline only (transparent fill, font-normal). Both keep a 1px border-border hairline and full-contrast text. Category is named by the group heading, not by color.",
+      "html": "<span class=\"ds-chip ds-chip-core\">TypeScript</span>\n<span class=\"ds-chip ds-chip-secondary\">Redis</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; border: 1px solid oklch(1 0 0 / 10%); border-radius: 4px; padding: 4px 8px; font-family: 'Inter Variable', sans-serif; font-size: 0.75rem; line-height: 1.4; color: oklch(0.985 0.002 248); white-space: nowrap; } .ds-chip-core { background-color: oklch(0.3 0.033 256.848); font-weight: 500; } .ds-chip-secondary { background-color: transparent; font-weight: 400; }"
+    },
+    {
+      "name": "Content Panel",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Primary surface container for About, Work Experience, Projects sections.",
+      "html": "<div class=\"ds-panel\"><h2 class=\"ds-panel-title\">Work Experience</h2><div class=\"ds-panel-body\">Content goes here.</div></div>",
+      "css": ".ds-panel { background-color: oklch(0.21 0.034 265); border-radius: 12px; padding: 24px; } .ds-panel-title { font-family: 'Schibsted Grotesk Variable', sans-serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; color: oklch(0.985 0.002 248); margin: 0 0 16px 0; } .ds-panel-body { font-family: 'Inter Variable', sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.6; color: oklch(0.707 0.022 261); }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Project entry within the Projects panel. Lifts on hover.",
+      "html": "<div class=\"ds-project-card\"><div class=\"ds-project-card-image\"></div><div class=\"ds-project-card-body\"><h3 class=\"ds-project-card-title\">Project Name</h3><p class=\"ds-project-card-desc\">Short description of the project.</p><div style=\"display:flex;gap:8px;flex-wrap:wrap;\"><span class=\"ds-chip ds-chip-core\">TypeScript</span><span class=\"ds-chip ds-chip-secondary\">React</span></div></div></div>",
+      "css": ".ds-project-card { background-color: oklch(0.278 0.033 257); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; cursor: pointer; transition: transform 200ms cubic-bezier(0,0,0.2,1), box-shadow 200ms cubic-bezier(0,0,0.2,1); } .ds-project-card:hover { transform: scale(1.02); box-shadow: 0 8px 24px oklch(0 0 0 / 30%); } .ds-project-card-image { height: 160px; background-color: oklch(0.31 0.028 262); } .ds-project-card-body { padding: 16px; display: flex; flex-direction: column; gap: 8px; } .ds-project-card-title { font-family: 'Inter Variable', sans-serif; font-size: 1rem; font-weight: 600; color: oklch(0.985 0.002 248); margin: 0; } .ds-project-card-desc { font-family: 'Inter Variable', sans-serif; font-size: 0.875rem; font-weight: 400; line-height: 1.6; color: oklch(0.707 0.022 261); margin: 0; } .ds-chip { display: inline-flex; align-items: center; border: 1px solid oklch(1 0 0 / 10%); border-radius: 4px; padding: 4px 8px; font-family: 'Inter Variable', sans-serif; font-size: 0.75rem; line-height: 1.4; color: oklch(0.985 0.002 248); } .ds-chip-core { background-color: oklch(0.3 0.033 256.848); font-weight: 500; } .ds-chip-secondary { background-color: transparent; font-weight: 400; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Authority",
+    "overview": "This is a portfolio where seniority is implied, never announced. The dark surface absorbs light and attention without reflecting it back — it exists to hold the work forward, not to perform confidence on its own behalf. Every element that remains has earned its place; everything decorative has been removed. The result is a surface that reads as premium the same way a well-machined tool does: through precision and the absence of excess.\n\nThe color strategy is restrained: a single cool blue-violet accent carries less than 10% of any surface. It appears on exactly the actions and moments that deserve weight — the call-to-action button, the work timeline thread. Its restraint is the point. If the accent is everywhere, it is nowhere.\n\nThe register is brand. The portfolio itself is the proof of engineering judgment. A designer looking at this interface should be unable to pin the aesthetic to a generic category. It is not dark-mode SaaS cream. It is not cyberpunk. It is not a formatted white CV. It is a built object that demonstrates the same taste its owner applies to production code.",
+    "keyCharacteristics": [
+      "Dark-first: designed for dark mode, adapted for light",
+      "Single accent: cool blue-violet, strictly rationed",
+      "Flat surfaces with tonal depth — no shadow theater",
+      "Two-family system: Schibsted Grotesk for structure (name, section headers, group labels), Inter for content. Hierarchy through scale, weight, and family role.",
+      "One personality beat: the sprite cursor follower. No more."
+    ],
+    "rules": [
+      {
+        "name": "The One Voice Rule",
+        "body": "The Accent Violet appears on ≤10% of any given surface. It is a voice, not a wallpaper. Using it on two things simultaneously dilutes both.",
+        "section": "colors"
+      },
+      {
+        "name": "The Neutral Tint Rule",
+        "body": "Every neutral carries chroma 0.005–0.035 toward hue 260–268. Pure gray neutrals are prohibited; they flatten the surface and read as uncurated defaults.",
+        "section": "colors"
+      },
+      {
+        "name": "The Role-Split Rule",
+        "body": "Schibsted Grotesk is for structure (identity, section headers, group labels); Inter is for content. Never use the display face for body prose, and never reach for a third family. No decorative serifs, no monospace 'developer' accents. The scale carries hierarchy at a ≥1.25 ratio between steps — no flat scales.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "No surface casts a shadow at rest. Shadows are reserved for hover states on interactive cards. If adding a shadow to a new component, first ask whether the component truly needs to communicate lift.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Personality Beat Rule",
+        "body": "The sprite cursor follower is the single moment of playfulness the system allows. Resist all other motion, delight, or decorative additions. Its scarcity is what makes it memorable.",
+        "section": "components"
+      },
+      {
+        "name": "The Neutral Chip Rule",
+        "body": "Chips are never color-coded. Tier is carried by fill (solid chip-core vs transparent outline), not hue. The group heading names the category, the fill names the proficiency tier, and color stays rationed to the violet accent. Outline chips keep full-contrast text-primary so the demotion never costs legibility (WCAG AA).",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do use accent-violet (oklch(0.55 0.19 268)) as the accent — a cooler, more considered blue-violet than the previous purple-600. Update legacy purple-600 usages as surfaces are touched.",
+      "Do keep every neutral surface tilted toward hue 260–268, even at near-zero chroma. Pure grays are prohibited.",
+      "Do use tonal surface steps (ink-well → surface-elevated → surface-secondary) as the depth model. Shadows are hover-only.",
+      "Do use Schibsted Grotesk for structural type (name, section headers, group labels) and Inter for content. Let the role split and weight carry hierarchy.",
+      "Do respect prefers-reduced-motion: the sprite component must be hidden under reduced-motion preferences.",
+      "Do keep line length to 65–75ch in body prose sections (About, work descriptions).",
+      "Do keep skill chips neutral. The group heading names the category; tier is carried by fill (solid chip-core vs outline), and color on chips is redundant and steals from the accent."
+    ],
+    "donts": [
+      "Don't use border-left or border-right greater than 1px as a colored accent stripe. The current border-l-2 border-purple-500 on work entries is a legacy pattern to replace.",
+      "Don't make this look like a generic shadcn/Tailwind default theme.",
+      "Don't use dark mode with purple gradients, neon accents, or glassmorphism.",
+      "Don't use gradient text (background-clip: text with a gradient fill).",
+      "Don't design a white CV with no visual intent in light mode.",
+      "Don't add ambient glow effects, animated gradient backgrounds, or particle systems.",
+      "Don't use the accent color on more than one interactive element per visible screen area.",
+      "Don't reintroduce per-category badge colors, and don't carry the core/secondary tier with color either. Tier is fill (solid vs outline); color belongs to the single violet accent, not the skill taxonomy."
+    ]
+  }
+}

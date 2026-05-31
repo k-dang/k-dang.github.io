@@ -21,22 +21,28 @@ const sortedProjects = projects.filter((project) => !project.data.hide).sort((a,
 ---
 
 <Layout>
-  <div class="grid md:grid-cols-[300px_1fr] lg:grid-cols-[400px_1fr] gap-4">
+  <div
+    class="mx-auto max-w-5xl px-5 md:px-8 md:grid md:grid-cols-[300px_1fr] lg:grid-cols-[320px_1fr]"
+  >
     <SideBar />
-    <div class="space-y-4">
-      <ContentLayout title={about.frontmatter.title}>
-        <about.Content />
-      </ContentLayout>
-      <ContentLayout title="Work Experience">
-        <div class="space-y-6">
+    <main
+      class="min-w-0 border-t border-border md:border-t-0 md:border-l md:border-border md:pl-8 lg:pl-12"
+    >
+      <div class="divide-y divide-border">
+        <ContentLayout title={about.frontmatter.title} index={1}>
+          <div class="max-w-[68ch] space-y-4">
+            <about.Content />
+          </div>
+        </ContentLayout>
+        <ContentLayout title="Work Experience" index={2}>
           {sortedWorkEntries.map((work) => <WorkSection work={work} />)}
-        </div>
-      </ContentLayout>
-      <ContentLayout title="Projects">
-        <div class="grid sm:grid-cols-3 gap-4">
-          {sortedProjects.map((project, index) => <ProjectCard index={index} project={project} />)}
-        </div>
-      </ContentLayout>
-    </div>
+        </ContentLayout>
+        <ContentLayout title="Projects" index={3}>
+          <div class="flex flex-col gap-2">
+            {sortedProjects.map((project, index) => <ProjectCard index={index} project={project} />)}
+          </div>
+        </ContentLayout>
+      </div>
+    </main>
   </div>
 </Layout>

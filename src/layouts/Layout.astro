@@ -1,7 +1,9 @@
 ---
 import "@/styles/global.css";
 import "@fontsource-variable/inter";
+import "@fontsource-variable/schibsted-grotesk";
 import interWoff2 from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import schibstedWoff2 from "@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2?url";
 
 import { Toaster } from "@/components/ui/sonner";
 
@@ -34,7 +36,7 @@ const {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -44,6 +46,7 @@ const {
     <meta name="robots" content="index, follow" />
 
     <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={schibstedWoff2} crossorigin="anonymous" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -71,10 +74,8 @@ const {
       })}
     />
   </head>
-  <body class="bg-gray-50 dark:bg-gray-900">
-    <div class="p-4">
-      <slot />
-    </div>
+  <body class="bg-background text-foreground antialiased">
+    <slot />
     <Toaster client:load position="bottom-right" duration={1000} />
   </body>
 </html>
