@@ -8,18 +8,11 @@ import fantasyBasketball from "@/assets/fantasy-basketball.png";
 import termdle from "@/assets/termdle.png";
 
 interface Props {
-  index: number;
   project: CollectionEntry<"projects">;
 }
 
-const { index, project } = Astro.props;
+const { project } = Astro.props;
 const { Content } = await render(project);
-
-const patternUrls = [
-  "bg-[url(/src/assets/random-shapes.svg)]",
-  "bg-[url(/src/assets/overlapping-circles.svg)]",
-  "bg-[url(/src/assets/anchors-away.svg)]",
-];
 
 // Map image paths to imported images
 const imageMap: Record<string, typeof fantasyBasketball> = {
@@ -55,7 +48,14 @@ const wrapperProps = href ? { href, target: "_blank", rel: "noopener noreferrer"
           class="h-full w-full object-cover"
         />
       ) : (
-        <div class={`h-full w-full ${patternUrls[index]} bg-repeat dark:bg-[oklch(0.92_0.006_264)]`} />
+        <div class="flex h-full w-full items-center justify-center bg-secondary">
+          <span
+            class="font-display text-5xl font-bold leading-none text-muted-foreground/35 select-none"
+            aria-hidden="true"
+          >
+            {project.data.title.charAt(0)}
+          </span>
+        </div>
       )
     }
   </div>

@@ -1,5 +1,5 @@
 ---
-title: "About Me"
+title: "About"
 ---
 
 I'm a software engineer specializing in full-stack development and fintech.

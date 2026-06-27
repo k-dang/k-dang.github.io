@@ -2,7 +2,7 @@
 order: 2
 title: "Termdle"
 githubUrl: "https://github.com/k-dang/termdle"
-tags: ["Typescript"]
+tags: ["TypeScript"]
 image: "termdle.png"
 ---
 

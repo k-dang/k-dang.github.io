@@ -30,7 +30,12 @@ export const EmailButton = ({ email }: EmailButtonProps) => {
   };
 
   return (
-    <Button variant="outline" size="icon" onClick={handleOnClick}>
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={handleOnClick}
+      aria-label="Copy email address"
+    >
       <div className="relative w-full h-full flex items-center justify-center">
         <Mail
           className={`absolute transition-all duration-300 ${
