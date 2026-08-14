@@ -25,9 +25,11 @@ for (const work of sortedWorkEntries) {
 }
 
 const projects = await getCollection("projects");
-const sortedProjects = projects.filter((project) => !project.data.hide).sort((a, b) => {
-  return a.data.order - b.data.order;
-});
+const sortedProjects = projects
+  .filter((project) => !project.data.hide)
+  .sort((a, b) => {
+    return a.data.order - b.data.order;
+  });
 ---
 
 <Layout>
@@ -40,7 +42,7 @@ const sortedProjects = projects.filter((project) => !project.data.hide).sort((a,
     >
       <div class="divide-y divide-border">
         <ContentLayout title={about.frontmatter.title} index={1}>
-          <div class="max-w-[68ch] space-y-4">
+          <div class="about-copy grid max-w-[68ch] gap-x-8 gap-y-5 sm:grid-cols-2">
             <about.Content />
           </div>
         </ContentLayout>
