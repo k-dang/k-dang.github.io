@@ -1,0 +1,27 @@
+---
+import { render, type CollectionEntry } from "astro:content";
+
+interface Props {
+  role: CollectionEntry<"work">;
+  showPeriod: boolean;
+}
+
+const { role, showPeriod } = Astro.props;
+const { Content } = await render(role);
+---
+
+<div>
+  <div class="flex flex-wrap items-baseline gap-x-4">
+    <h4 class="text-sm font-semibold text-foreground">{role.data.title}</h4>
+    {
+      showPeriod && (
+        <p class="ml-auto shrink-0 text-right text-xs text-muted-foreground tabular-nums">
+          {role.data.employmentPeriod}
+        </p>
+      )
+    }
+  </div>
+  <div class="mt-2 space-y-2 text-sm leading-relaxed text-muted-foreground">
+    <Content />
+  </div>
+</div>

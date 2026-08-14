@@ -1,11 +1,18 @@
 ---
-import { render, type CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+import WorkRole from "@/components/WorkRole.astro";
+
 interface Props {
-  work: CollectionEntry<"work">;
+  employer: string;
+  roles: CollectionEntry<"work">[];
 }
 
-const { work } = Astro.props;
-const { Content } = await render(work);
+const { employer, roles } = Astro.props;
+
+// roles are newest-first, so the tenure spans the oldest start to the newest end
+const [start] = roles[roles.length - 1].data.employmentPeriod.split(" - ");
+const [, end] = roles[0].data.employmentPeriod.split(" - ");
 ---
 
 <div class="relative border-l border-border pl-6 pb-8 last:pb-0">
@@ -14,18 +21,17 @@ const { Content } = await render(work);
     aria-hidden="true"
   >
   </span>
-  <div>
-    <h3 class="font-semibold text-foreground">
-      {work.data.title}
-    </h3>
-    <p class="text-sm font-medium text-foreground">
-      {work.data.employer}
-    </p>
-    <p class="mt-0.5 text-xs text-muted-foreground">
-      {work.data.employmentPeriod}
-    </p>
-  </div>
-  <div class="mt-2 space-y-2 text-muted-foreground text-sm leading-relaxed max-w-[68ch]">
-    <Content />
+  <div class="max-w-[68ch] text-sm">
+    <div class="flex flex-wrap items-baseline gap-x-4">
+      <h3 class="font-display text-base font-semibold tracking-tight text-foreground">
+        {employer}
+      </h3>
+      <p class="ml-auto shrink-0 text-right text-xs text-muted-foreground tabular-nums">
+        {start} - {end}
+      </p>
+    </div>
+    <div class="mt-3 space-y-5">
+      {roles.map((role) => <WorkRole role={role} showPeriod={roles.length > 1} />)}
+    </div>
   </div>
 </div>
