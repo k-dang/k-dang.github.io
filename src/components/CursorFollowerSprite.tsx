@@ -62,7 +62,9 @@ export const CursorFollowerSprite = ({
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const mediaQuery = window.matchMedia(
+      "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+    );
 
     const updateSupport = () => {
       const supported = mediaQuery.matches;
@@ -134,7 +136,7 @@ export const CursorFollowerSprite = ({
         0,
         0,
         canvasWidth,
-        canvasHeight
+        canvasHeight,
       );
     };
 
@@ -246,7 +248,7 @@ export const CursorFollowerSprite = ({
         </Button>
       </div>
 
-      {isEnabled && (
+      {isEnabled &&
         typeof document !== "undefined" &&
         createPortal(
           <canvas
@@ -257,9 +259,8 @@ export const CursorFollowerSprite = ({
             style={{ imageRendering: "pixelated" }}
             aria-hidden="true"
           />,
-          document.body
-        )
-      )}
+          document.body,
+        )}
     </>
   );
 };

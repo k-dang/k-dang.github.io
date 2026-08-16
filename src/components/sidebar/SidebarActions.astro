@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+
+import { Download } from "@lucide/astro";
+
+import { EmailButton } from "@/components/EmailButton";
+import { Button } from "@/components/ui/button";
+
+import githubLogo from "@/assets/github.svg";
+import linkedInLogo from "@/assets/linkedIn.svg";
+---
+
+<div class="flex justify-center gap-2">
+  <a target="_blank" rel="noreferrer" href="https://github.com/k-dang" aria-label="GitHub">
+    <Button variant="outline" size="icon">
+      <Image
+        class="invert dark:invert-0"
+        src={githubLogo}
+        width="16"
+        height="16"
+        alt=""
+        loading="eager"
+      />
+    </Button>
+  </a>
+
+  <a
+    target="_blank"
+    rel="noreferrer"
+    href="https://www.linkedin.com/in/kdang1/"
+    aria-label="LinkedIn"
+  >
+    <Button variant="outline" size="icon">
+      <Image
+        class="dark:invert invert-0"
+        src={linkedInLogo}
+        width="16"
+        height="16"
+        alt=""
+        loading="eager"
+      />
+    </Button>
+  </a>
+
+  <EmailButton client:idle email="dangkevin12@gmail.com" />
+
+  <a href="/kevin-dang-cv.pdf" download>
+    <Button variant="accent" size="default">
+      <Download />
+      <span>Resume</span>
+    </Button>
+  </a>
+</div>
