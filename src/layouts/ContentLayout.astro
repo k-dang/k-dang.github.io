@@ -10,16 +10,12 @@ const label = index != null ? String(index).padStart(2, "0") : null;
 
 <section class="py-10 first:pt-8 md:first:pt-10">
   <header class="mb-7 flex items-baseline gap-3">
-    {
-      label && (
-        <span class="font-display text-sm font-semibold tabular-nums text-muted-foreground">
-          {label}
-        </span>
-      )
-    }
-    <h2 class="font-display text-2xl font-semibold tracking-[-0.01em] text-foreground">
-      {title}
-    </h2>
+    {label && (
+      <span class="font-display text-sm font-semibold tabular-nums text-muted-foreground">
+        {label}
+      </span>
+    )}
+    <h2 class="font-display text-2xl font-semibold tracking-[-0.01em] text-foreground">{title}</h2>
   </header>
   <div class="text-muted-foreground leading-relaxed">
     <slot />

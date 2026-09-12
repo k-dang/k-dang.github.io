@@ -44,28 +44,27 @@ import portraitImg from "@/assets/portrait.png";
       <p class="text-[0.6875rem] text-muted-foreground">Core skills in bold</p>
     </div>
     <dl>
-      {
-        skillGroups.map((group) => (
-          <div class="grid grid-cols-[5.75rem_1fr] gap-3 border-b border-border py-3">
-            <dt class="font-display text-xs font-semibold text-muted-foreground">{group.label}</dt>
-            <dd class="text-xs leading-5 text-muted-foreground">
-              {group.items.map((skill, index) => (
-                <>
-                  <span class:list={[isCoreSkill(skill) && "font-semibold text-foreground"]}>
-                    {skill}
-                  </span>
-                  {index < group.items.length - 1 && <span aria-hidden="true">, </span>}
-                </>
-              ))}
-            </dd>
-          </div>
-        ))
-      }
+      {skillGroups.map((group) => (
+        <div class="grid grid-cols-[5.75rem_1fr] gap-3 border-b border-border py-3">
+          <dt class="font-display text-xs font-semibold text-muted-foreground">{group.label}</dt>
+          <dd class="text-xs leading-5 text-muted-foreground">
+            {group.items.map((skill, index) => (
+              <>
+                <span class:list={[isCoreSkill(skill) && "font-semibold text-foreground"]}>
+                  {skill}
+                </span>
+                {index < group.items.length - 1 && <span aria-hidden="true">, </span>}
+              </>
+            ))}
+          </dd>
+        </div>
+      ))}
     </dl>
   </section>
 
   <p class="mt-5 text-xs leading-5 text-muted-foreground">
-    <span class="font-medium text-foreground">McMaster University</span><br />
+    <span class="font-medium text-foreground">McMaster University</span>
+    <br />
     B.Eng Mechatronics Engineering
   </p>
 </section>

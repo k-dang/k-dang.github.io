@@ -5,7 +5,8 @@ interface Props {
 
 const { prominent = false } = Astro.props;
 
-const base = "inline-flex items-center rounded border border-border px-2 py-1 text-xs text-foreground";
+const base =
+  "inline-flex items-center rounded border border-border px-2 py-1 text-xs text-foreground";
 const tier = prominent ? "bg-chip-core font-medium" : "bg-transparent font-normal";
 ---
 

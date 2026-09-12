@@ -70,10 +70,10 @@ export const SpriteAnimator = ({
         0,
         0,
         canvasWidth,
-        canvasHeight
+        canvasHeight,
       );
     },
-    [frameWidth, frameHeight, canvasWidth, canvasHeight, frameCount]
+    [frameWidth, frameHeight, canvasWidth, canvasHeight, frameCount],
   );
 
   const animate = useCallback(
@@ -109,7 +109,7 @@ export const SpriteAnimator = ({
 
       animationRef.current = requestAnimationFrame(animate);
     },
-    [frameDuration, totalFrames, pingPong, drawFrame]
+    [frameDuration, totalFrames, pingPong, drawFrame],
   );
 
   useEffect(() => {
@@ -222,7 +222,6 @@ export const SpriteAnimator = ({
           )}
         </>
       )}
-
     </div>
   );
 };
