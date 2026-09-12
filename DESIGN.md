@@ -97,6 +97,7 @@ The color strategy is restrained: a single cool blue-violet accent carries less 
 The register is brand. The portfolio itself is the proof of engineering judgment. A designer looking at this interface should be unable to pin the aesthetic to a generic category. It is not dark-mode SaaS cream. It is not cyberpunk. It is not a formatted white CV. It is a built object that demonstrates the same taste its owner applies to production code.
 
 **Key Characteristics:**
+
 - Dark-first: designed for dark mode, adapted for light
 - Single accent: cool blue-violet, strictly rationed
 - Flat surfaces with tonal depth — no shadow theater
@@ -141,7 +142,7 @@ A near-monochromatic dark palette with a single cool blue-violet accent. Every n
 
 **Display Font:** Schibsted Grotesk Variable — a contemporary grotesque with distinctive letterforms (single-story `a`/`g`, tight apertures). **Body Font:** Inter Variable. Both fall back to `sans-serif`.
 
-**Character:** A two-family system with a strict role split. Schibsted Grotesk is the *structural voice*: the name, the section headers, the sidebar group labels. Inter is the *content voice*: everything you read. Pairing two grotesques means the contrast is cut and weight, not a family war. This breaks the Inter-only "tasteful default" lane the portfolio used to sit in and gives the page an authored signature.
+**Character:** A two-family system with a strict role split. Schibsted Grotesk is the _structural voice_: the name, the section headers, the sidebar group labels. Inter is the _content voice_: everything you read. Pairing two grotesques means the contrast is cut and weight, not a family war. This breaks the Inter-only "tasteful default" lane the portfolio used to sit in and gives the page an authored signature.
 
 ### Hierarchy
 
@@ -197,6 +198,7 @@ Skill taxonomy chips. They are categorical markers, not interactive filters.
 Two container types in use:
 
 **Content Panel** (About, Work Experience, Projects, Sidebar):
+
 - Background: `surface-elevated`
 - Radius: 12px (xl)
 - Shadow: none at rest
@@ -204,6 +206,7 @@ Two container types in use:
 - The primary surface above the page ground plane.
 
 **Project Card**:
+
 - Background: `surface-secondary` (within a content panel)
 - Radius: 8px
 - Shadow: hover only — `0 8px 24px oklch(0 0 0 / 30%)`
@@ -224,6 +227,7 @@ The sidebar is the identity surface. It is sticky at desktop and collapses to in
 ### Signature Component: Sprite Cursor Follower
 
 The one allowed personality beat. A walking sprite sheet follows the cursor. This component:
+
 - Renders only when the cursor is within the sidebar
 - Animates at 6 fps (deliberate low-fi)
 - Carries no semantic content

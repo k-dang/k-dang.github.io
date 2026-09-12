@@ -1,2 +1,4 @@
 dist
 .agents
+.impeccable
+pnpm-lock.yaml
