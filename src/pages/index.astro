@@ -48,7 +48,7 @@ const sortedProjects = projects
               <WorkSection {...group} />
             ))}
           </ContentLayout>
-          <ContentLayout title="Projects" index={3}>
+          <ContentLayout title="Projects" index={3} id="projects">
             <div class="flex flex-col gap-2">
               {sortedProjects.map((project) => (
                 <ProjectCard project={project} />
