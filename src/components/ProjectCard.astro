@@ -4,8 +4,10 @@ import { render, type CollectionEntry } from "astro:content";
 import { ArrowUpRight } from "@lucide/astro";
 import Badge from "@/components/Badge.astro";
 
+import csvViewer from "@/assets/csv-viewer.png";
 import fantasyBasketball from "@/assets/fantasy-basketball.png";
 import termdle from "@/assets/termdle.png";
+import winCodexBar from "@/assets/win-codex-bar.png";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -16,8 +18,10 @@ const { Content } = await render(project);
 
 // Map image paths to imported images
 const imageMap: Record<string, typeof fantasyBasketball> = {
+  "csv-viewer.png": csvViewer,
   "fantasy-basketball.png": fantasyBasketball,
   "termdle.png": termdle,
+  "win-codex-bar.png": winCodexBar,
 };
 
 // Determine which image to use: from project.data.image or fallback to pattern by index
@@ -28,7 +32,7 @@ const href = project.data.url ?? project.data.githubUrl ?? null;
 const linkLabel = project.data.url
   ? "Visit Site"
   : project.data.githubUrl
-    ? "View on Github"
+    ? "View on GitHub"
     : null;
 
 const Wrapper = href ? "a" : "div";
@@ -43,10 +47,11 @@ const wrapperProps = href ? { href, target: "_blank", rel: "noopener noreferrer"
     {projectImage ? (
       <Image
         src={projectImage}
-        alt={project.data.title}
+        alt={project.data.imageAlt ?? project.data.title}
         width={384}
         height={240}
         class="h-full w-full object-cover"
+        style={`object-position: ${project.data.imagePosition ?? "center"}`}
       />
     ) : (
       <div class="flex h-full w-full items-center justify-center bg-secondary">
