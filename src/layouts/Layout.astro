@@ -1,11 +1,14 @@
 ---
-import "@/styles/global.css";
+import { getImage } from "astro:assets";
+
 import "@fontsource-variable/inter";
 import "@fontsource-variable/schibsted-grotesk";
 import interWoff2 from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 import schibstedWoff2 from "@fontsource-variable/schibsted-grotesk/files/schibsted-grotesk-latin-wght-normal.woff2?url";
 
+import profileImage from "@/assets/profile-img.png";
 import { Toaster } from "@/components/ui/sonner";
+import "@/styles/global.css";
 
 interface Props {
   title?: string;
@@ -14,10 +17,19 @@ interface Props {
   canonicalURL?: string;
 }
 
+const defaultSocialImage = await getImage({
+  src: profileImage,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpeg",
+  quality: 85,
+});
+
 const {
   title = "Kevin Dang - Software Engineer",
   description = "Personal website and portfolio of Kevin Dang, a software engineer passionate about building great web experiences.",
-  image = "./profile-img.png",
+  image = defaultSocialImage.src,
   canonicalURL = Astro.url.href,
 } = Astro.props;
 ---
